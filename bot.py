@@ -71,7 +71,7 @@ async def run_news():
                     pass
             else:
                 pass
-        asyncio.sleep(5)
+        await asyncio.sleep(5)
 
 @bot.command(pass_context=True)
 async def clean(ctx, amount=99):
