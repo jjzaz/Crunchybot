@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix='.')
 
 token = 'NDgxMDk3MjY0Njg5ODQwMTM5.Dr29Jg.SyaiWRRZRfbAv3pBpdLhiMLGmUM'
 
-today = datetime.datetime.now()
+
 
 months = {'January':1,
          'Febuary':2,
@@ -30,15 +30,18 @@ async def on_ready():
 async def run_news():
 
     await bot.wait_until_ready()
-    source = urllib2.urlopen('https://www.crunchyroll.com/news')
 
-    soup = BeautifulSoup(source, 'lxml')
+
 
     urls = []
 
     posted = []
 
     while not bot.is_closed:
+        today = datetime.datetime.now()
+        source = urllib2.urlopen('https://www.crunchyroll.com/news')
+
+        soup = BeautifulSoup(source, 'lxml')
         today_month = today.month
         today_day = str(today.day)
         today_year = today.year
